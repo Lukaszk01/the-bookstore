@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# puts "clearing the db..."
+# Author.destroy_all
+# puts "Creating authors..."
+
+# 10.times do
+#   author = Author.new(
+#     name: Faker::Name.name,
+#     # books: Faker::Kpop.iii_groups
+#   )
+#   author.save!
+# end
+# puts "Finished creating #{Author.count} authors..."
