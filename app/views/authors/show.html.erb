@@ -1,2 +1,10 @@
-show.html.erb
+<div class="text-warning">
+  <h1><%= @author.name %></h1>
+</div>
 
+<%= link_to author_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+<ul class="text-success">Delete => <i class="fa fa-trash"></i></ul>
+<% end %>
+<div class="btn btn-success">
+<%= link_to 'Back', authors_path %>
+</div>
