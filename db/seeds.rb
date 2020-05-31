@@ -7,10 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
-
-
-
 require 'faker'
 
  puts "clearing the db..."
