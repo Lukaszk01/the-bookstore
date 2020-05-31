@@ -1,12 +1,15 @@
-<button type="button" class="btn-outline-light btn-lg btn-block"> <%= link_to 'New', new_author_path %></button>
-<div class="list-group">
+<div class="contairner">
+  <button type="button" class="btn-outline-light btn-lg btn-block"> <%= link_to 'New', new_author_path %></button>
+  <div class="mb-3 mt-3 d-flex col-12">
+    <div class="list-group">
  <% @authors.each do |author| %>
  <li class="list-group-item-dark">Name:</li>
   <li class="list-group-item"><%= author.name %></li>
   <li class="list-group-item"><%= render 'author', author: author %></li>
   <% end %>
-
-
+  </div>
 </div>
+</div>
+
 
 
