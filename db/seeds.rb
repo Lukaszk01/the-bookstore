@@ -7,21 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# puts "clearing the db..."
-# Author.destroy_all
-# puts "Creating authors..."
 
-# 10.times do
-#   author = Author.new(
-#     name: Faker::Name.name,
-#     # books: Faker::Kpop.iii_groups
-#   )
-#   author.save!
-# end
-# puts "Finished creating #{Author.count} authors..."
 
-  Book.create(genre: "Poem")
-  Book.create(genre: "Drama")
-  Book.create(genre: "Fiction")
-  Book.create(genre: "Non-fiction")
-  Book.create(genre: "Science-fiction")
+
+
+require 'faker'
+
+ puts "clearing the db..."
+ Book.destroy_all
+ puts "Creating books..."
+
+30.times do
+  book = Book.new
+  book.title = 'Faker::Book.title'
+  book.genre = 'Faker::Book.genre'
+  book.cover = 'Faker::Creature::Animal'
+  book.save!
+end
+  puts "books created"

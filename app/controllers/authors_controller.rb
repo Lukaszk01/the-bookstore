@@ -5,6 +5,7 @@ class AuthorsController < ApplicationController
 
   def index
     @authors = Author.all
+    @books = Book.all
   end
 
   def show
