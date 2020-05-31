@@ -19,3 +19,9 @@
 #   author.save!
 # end
 # puts "Finished creating #{Author.count} authors..."
+
+  Book.create(genre: "Poem")
+  Book.create(genre: "Drama")
+  Book.create(genre: "Fiction")
+  Book.create(genre: "Non-fiction")
+  Book.create(genre: "Science-fiction")

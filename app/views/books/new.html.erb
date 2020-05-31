@@ -1,0 +1,12 @@
+new.html.erb
+<h1> Add to: <%= @author.name %></h1>
+
+
+<%= simple_form_for [@author, @book] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :genre, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+  <%= f.input :cover %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+
