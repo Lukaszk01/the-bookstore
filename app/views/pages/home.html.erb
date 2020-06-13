@@ -1,6 +1,27 @@
 <h1>Search for book</h1>
 
-<%= form_tag(pages_path, method: 'get') do %>
-      <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag("Search", name: nil) %>
-<% end %>
+<input type="text">
+
+
+<% require 'json' %>
+
+<% require 'open-uri' %>
+
+<% url = 'https://www.googleapis.com/books/v1/volumes?q=1984' %>
+<% user_serialized = open(url).read %>
+<% user = JSON.parse(user_serialized) %>
+
+
+
+
+
+
+<h1><%= "#{user['items'][0]['volumeInfo']['title']}" %></h1><%= "#{user['kind']}" %>
+<h2><%= "#{user['items'][0]['volumeInfo']['authors'].join}" %></h2>
+<p><%= "#{user['items'][0]['volumeInfo']['description']}" %></p>
+<ul>
+  <li><%= "#{user['items'][0]['volumeInfo']['publisher']}" %></li>
+  <li><%= "#{user['items'][0]['volumeInfo']['publishedDate']}" %></li>
+</ul>
+
+
