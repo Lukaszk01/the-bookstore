@@ -101,6 +101,10 @@ GEM
       elasticsearch-transport (= 7.7.0)
     elasticsearch-api (7.7.0)
       multi_json
+    elasticsearch-model (7.1.0)
+      activesupport (> 3)
+      elasticsearch (> 1)
+      hashie
     elasticsearch-transport (7.7.0)
       faraday (~> 1)
       multi_json
@@ -231,6 +235,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (4.0.2)
@@ -266,6 +272,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   dotenv-rails
+  elasticsearch-model
   faker!
   font-awesome-sass
   jbuilder (~> 2.7)
@@ -283,6 +290,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data
+  uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
