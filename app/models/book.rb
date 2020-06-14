@@ -1,13 +1,16 @@
-require 'elasticsearch/model'
 class Book < ApplicationRecord
   belongs_to :author
-  has_many :covers
-  # validates :title, uniqueness: true
-  # validates :title, presence: true
-  #  validates :name, uniqueness: true
-  # validates :name, presence: true
-
 include Elasticsearch::Model
 include Elasticsearch::Model::Callbacks
 
+  def as_indexed_json(options = {})
+    self.as_json(
+      only: [:name, :isbn, :published_at, :pages],
+      include: {
+        author: {
+          only: [:first_name, :last_name]
+        }
+      }
+    )
+  end
 end
