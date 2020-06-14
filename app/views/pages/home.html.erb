@@ -6,11 +6,15 @@
 <% require 'json' %>
 
 <% require 'open-uri' %>
-
-<% url = 'https://www.googleapis.com/books/v1/volumes?q=python' %>
+<% book_title = "python" %>
+<% url = "https://www.googleapis.com/books/v1/volumes?q=#{book_title}" %>
 <% user_serialized = open(url).read %>
 <% user = JSON.parse(user_serialized) %>
 
+<%= form_for(books_path) do |f| %>
+
+
+<% end %>
 
 
 
