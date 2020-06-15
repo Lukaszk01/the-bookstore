@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   def home
      # skip_before_action :authenticate_user!, only: :home
     book_title = "python"
-    url = "https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&maxResults=15&key=#{ENV["AIzaSyCceqexSWqOP94O7r06WYfpkd1e3xkEoRo"]}"
+    url = "https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&maxResults=15&key=#{ENV["GOOGLE_API"]}"
     user_serialized = open(url).read
     user = JSON.parse(user_serialized)
 
