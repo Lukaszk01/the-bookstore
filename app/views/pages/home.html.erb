@@ -1,41 +1,4 @@
-<h1>Search for book</h1>
 
-<input type="text">
-
-
-<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :name, input_html: {value: ""} %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
-
-<% require 'json' %>
-<% require 'open-uri' %>
-
-<% book_title = "python" %>
-<% url = "https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&maxResults=15&key=#{ENV["GOOGLE_API"]}" %>
-<% user_serialized = open(url).read %>
-<% user = JSON.parse(user_serialized) %>
-
-
-<div class="container">
-  <div class="row justify-content-center text-left mt-3 mb-3">
-    <div class="book">
-      <h1><%= "Title: #{user['items'][0]['volumeInfo']['title']}" %></h1>
-        <p><%= "#{user['kind']}" %></p>
-        <h2><%= "Author/s: #{user['items'][0]['volumeInfo']['authors'].join}" %></h2>
-        <p><%= "Description: #{user['items'][0]['volumeInfo']['description']}" %></p>
-        <ul>
-          <li><%= "Publisher: #{user['items'][0]['volumeInfo']['publisher']}" %></li>
-          <li><%= "Date: #{user['items'][0]['volumeInfo']['publishedDate']}" %></li>
-          <li><%= "Type: #{user['items'][0]['volumeInfo']['categories']}" %></li>
-          <li><%= "Avarage rating: #{user['items'][0]['volumeInfo']['averageRating']}" %></li>
-          <li><%= "Image: #{user['items'][0]['volumeInfo']['imageLinks']['thumbnail']}" %></li>
-          <li><%= "Language: #{user['items'][0]['volumeInfo']['language']}" %></li>
-          <li><%= "Preview: #{user['items'][0]['volumeInfo']['previewLink']}" %></li>
-        </ul>
-    </div>
-  </div>
-</div>
 
 
 
