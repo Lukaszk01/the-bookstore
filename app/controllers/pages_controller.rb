@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   require 'json'
+  require 'uri'
   require 'open-uri'
 
   def home
@@ -22,5 +23,7 @@ class PagesController < ApplicationController
      @language = "Language: #{user['items'][0]['volumeInfo']['language']}"
      @preview = "Preview: #{user['items'][0]['volumeInfo']['previewLink']}"
   end
+  def search
 
+  end
 end
