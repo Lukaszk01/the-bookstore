@@ -3,11 +3,16 @@
 <input type="text">
 
 
+<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :name, input_html: {value: ""} %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+
 <% require 'json' %>
 
 <% require 'open-uri' %>
 <% book_title = "python" %>
-<% url = "https://www.googleapis.com/books/v1/volumes?q=#{book_title}" %>
+<% url = "https://www.googleapis.com/books/v1/volumes?q=#{params[:search]}&maxResults=15&key=#{ENV["GOOGLE_API"]}" %>
 <% user_serialized = open(url).read %>
 <% user = JSON.parse(user_serialized) %>
 
@@ -15,7 +20,6 @@
 
 
 <% end %>
-
 
 
 <div class="container">
@@ -37,6 +41,13 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
 
 
 
