@@ -1,33 +1,35 @@
+
 class BooksController < ApplicationController
 
-  # def index
-  #   response = Book.__elasticsearch__.search(
-  #     query: {
-  #       multi_match: {
-  #         query: params[:query],
-  #         fields: ['name', 'author.first_name', 'author.last_name', 'isbn']
-  #       }
-  #     }
-  #   ).results
-
-  #   render json: {
-  #     results: response.results,
-  #     total: response.total
-  #   }
-  # end
-
   def index
-    # @books = Book.all
+    response = Book.__elasticsearch__.search(
+      query: {
+        multi_match: {
+          query: params[:query],
+          fields: ['name', 'author.first_name', 'author.last_name', 'isbn']
+        }
+      }
+    ).results
+
+    render json: {
+      results: response.results,
+      total: response.total
+    }
+  end
+
+  # def index
+  #   @books = Book.all
   #   @search = params["search"]
   #   if @search.present?
   #     @title = @search["title"]
   # end
-end
+  # # @books = Book.search(params[:search])
+  # end
 
-   def search
+ def search
 
-   end
-end
+ end
+
 
 
   # def show
@@ -54,9 +56,10 @@ end
 
   # end
 
-  # private
+   private
+    require 'open-uri'
 
-  # def book_params
-  #   params.require(:book).permit(:title, :genre, :cover)
-  # end
-
+   def book_params
+     params.require(:book).permit(:title, :genre, :cover, :search)
+   end
+end
