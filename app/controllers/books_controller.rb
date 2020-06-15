@@ -1,3 +1,4 @@
+
 class BooksController < ApplicationController
 
   def index
@@ -15,7 +16,20 @@ class BooksController < ApplicationController
       total: response.total
     }
   end
-end
+
+  # def index
+  #   @books = Book.all
+  #   @search = params["search"]
+  #   if @search.present?
+  #     @title = @search["title"]
+  # end
+  # # @books = Book.search(params[:search])
+  # end
+
+ def search
+
+ end
+
 
 
   # def show
@@ -42,9 +56,10 @@ end
 
   # end
 
-  # private
+   private
+    require 'open-uri'
 
-  # def book_params
-  #   params.require(:book).permit(:title, :genre, :cover)
-  # end
-
+   def book_params
+     params.require(:book).permit(:title, :genre, :cover, :search)
+   end
+end
