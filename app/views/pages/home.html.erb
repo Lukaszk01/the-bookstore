@@ -1,7 +1,7 @@
 <h1>Search for book</h1>
 
 <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :name, input_html: {value: ""} %>
+  <%= f.input :searh, input_html: {value: ""} %>
   <%= f.submit "Search", class: "btn btn-primary" %>
 <% end %>
 
@@ -24,3 +24,79 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+import { }
+
+<% url = "https://www.googleapis.com/books/v1/volumes?q=#{:search}&maxResults=15&key=#{ENV["AIzaSyCceqexSWqOP94O7r06WYfpkd1e3xkEoRo"]}" %>
+<% response = HTTParty.get(url) %>
+<% result = response.parsed_response %>
+
+<div class="container">
+  <div class="row justify-content-center text-left mt-3 mb-3">
+    <div class="book">
+      <h1><%= "Title: #{result['items'][0]['volumeInfo']['title']}" %></h1>
+        <p><%= "#{result['kind']}" %></p>
+        <h2><%= "Author/s: #{result['items'][0]['volumeInfo']['authors'].join}" %></h2>
+        <p><%= "Description: #{result['items'][0]['volumeInfo']['description']}" %></p>
+        <ul>
+          <li><%= "Publisher: #{result['items'][0]['volumeInfo']['publisher']}" %></li>
+          <li><%= "Date: #{result['items'][0]['volumeInfo']['publishedDate']}" %></li>
+          <li><%= "Type: #{result['items'][0]['volumeInfo']['categories']}" %></li>
+          <li><%= "Avarage rating: #{result['items'][0]['volumeInfo']['averageRating']}" %></li>
+          <li><%= "Image: #{result['items'][0]['volumeInfo']['imageLinks']['thumbnail']}" %></li>
+          <li><%= "Language: #{result['items'][0]['volumeInfo']['language']}" %></li>
+          <li><%= "Preview: #{result['items'][0]['volumeInfo']['previewLink']}" %></li>
+        </ul>
+    </div>
+  </div>
+</div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Book Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container" id="app">
+      <h3 class="text-center">Book Finder</h3>
+      <p> Search：<form v-on:submit.prevent="getResult(query)">
+        <input type="text" placeholder="Type in your search" v-model="query" /></p> #フォーム入力したものをv-modelでバインド
+          <div class="book_wrapper">
+            <div class="book_card" v-for="item in items">
+
+
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img class="card-img" v-bind:src="item.volumeInfo.imageLinks.thumbnail" />
+                </div>
+
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{item.volumeInfo.title}}</h5>
+                    <p class="card-text">{{item.volumeInfo.authors}}</p>
+                    <p class="card-text"><small class="text-muted">{{item.volumeInfo.publisher}}</small></p>
+                  </div>
+
+                  <div class="book_button">
+                    <a v-bind:href="item.volumeInfo.previewLink" class="waves-effect waves-light btn" target="_blank">show detail</a>
+                  </div>
+                </div>
+          </div>
+        </div>
+       </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> #vue.jsのインストール
+    <script src="application.js"></script> #jsファイルを読み込む
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.17.1/dist/axios.min.js"></script> #axiosをインストール
+  </body>
+
+</html>
