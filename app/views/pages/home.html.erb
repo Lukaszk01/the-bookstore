@@ -1,10 +1,7 @@
 <h1>Search for book</h1>
 
-<input type="text">
-
-
 <%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :name, input_html: {value: ""} %>
+  <%= f.input :searh, input_html: {value: ""} %>
   <%= f.submit "Search", class: "btn btn-primary" %>
 <% end %>
 
@@ -27,3 +24,145 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+<% url = "https://www.googleapis.com/books/v1/volumes?q=#{:search}&maxResults=15&key=#{ENV["AIzaSyCceqexSWqOP94O7r06WYfpkd1e3xkEoRo"]}" %>
+<% response = HTTParty.get(url) %>
+<% result = response.parsed_response %>
+
+<div class="container">
+  <div class="row justify-content-center text-left mt-3 mb-3">
+    <div class="book">
+      <h1><%= "Title: #{result['items'][0]['volumeInfo']['title']}" %></h1>
+        <p><%= "#{result['kind']}" %></p>
+        <h2><%= "Author/s: #{result['items'][0]['volumeInfo']['authors'].join}" %></h2>
+        <p><%= "Description: #{result['items'][0]['volumeInfo']['description']}" %></p>
+        <ul>
+          <li><%= "Publisher: #{result['items'][0]['volumeInfo']['publisher']}" %></li>
+          <li><%= "Date: #{result['items'][0]['volumeInfo']['publishedDate']}" %></li>
+          <li><%= "Type: #{result['items'][0]['volumeInfo']['categories']}" %></li>
+          <li><%= "Avarage rating: #{result['items'][0]['volumeInfo']['averageRating']}" %></li>
+          <li><%= "Image: #{result['items'][0]['volumeInfo']['imageLinks']['thumbnail']}" %></li>
+          <li><%= "Language: #{result['items'][0]['volumeInfo']['language']}" %></li>
+          <li><%= "Preview: #{result['items'][0]['volumeInfo']['previewLink']}" %></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no"
+    />
+    <title>Books - Find books from Google Play Books</title>
+    <meta name="description" content="Find books from Google Play Books" />
+    <link rel="icon" href="favicon.ico" />
+    <meta itemprop="name" content="Books" />
+    <meta itemprop="description" content="Find books from Google Play Books" />
+    <meta itemprop="image" content="icons/icon-192x192.png" />
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="manifest.json" />
+    <!-- See https://goo.gl/qRE0vM -->
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Books" />
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Books" />
+    <!-- Homescreen icons -->
+    <link rel="apple-touch-icon" href="icons/icon-48x48.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="96x96" href="icons/icon-96x96.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="icons/icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="192x192"
+      href="icons/icon-192x192.png"
+    />
+    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="icons/icon-144x144.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- OpenGraph -->
+    <meta property="og:site_name" content="Books" />
+    <meta property="og:url" content="https://liyasthomas.github.io/books" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Books" />
+    <meta
+      property="og:description"
+      content="Find books from Google Play Books"
+    />
+    <meta property="og:image" content="icons/icon-144x144.png" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@liyasthomas" />
+    <meta name="twitter:creator" content="@liyasthomas" />
+    <meta name="twitter:url" content="https://liyasthomas.github.io/books" />
+    <meta name="twitter:title" content="Books" />
+    <meta
+      name="twitter:description"
+      content="Find books from Google Play Books"
+    />
+    <meta name="twitter:image" content="icons/icon-144x144.png" />
+    <!-- Web Fonts -->
+
+      <div class="spacer"></div>
+      <label class="theme-switch" for="checkbox" title="Night mode">
+        <input type="checkbox" id="checkbox" aria-label="Night mode" />
+        <div class="slider round"></div>
+      </label>
+    </aside>
+    <main id="main" class="main">
+      <article>
+        <section id="search" class="results">
+          <div class="flex">
+            <input
+              id="search-box"
+              class="search-box"
+              placeholder="Search books by name, author, genre and etc ..."
+              aria-label="Search books"
+            />
+            <button
+              id="installPWA"
+              class="info"
+              onclick="installPWA()"
+              style="margin-left: 24px; padding: 8px 16px;"
+            >
+              <img src="icons/pwalogo.svg" alt="PWA" style="height: 16px;" />
+            </button>
+          </div>
+          <div class="list-book search">
+          </div>
+        </section>
+
+
