@@ -1,69 +1,3 @@
-<h1>Search for book</h1>
-
-<%= simple_form_for :search, url: root_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :searh, input_html: {value: ""} %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
-
-<div class="container">
-  <div class="row justify-content-center text-left mt-3 mb-3">
-    <div class="book">
-      <h1><%= @title %></h1>
-        <p><%= @kind %></p>
-        <h2><%= @author %></h2>
-        <p><%= @description %></p>
-        <ul>
-          <li><%= @publisher %></li>
-          <li><%= @date %></li>
-          <li><%= @type %></li>
-          <li><%= @rating %></li>
-          <li><%= @image %></li>
-          <li><%= @language %></li>
-          <li><%= @preview %></li>
-        </ul>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-<% url = "https://www.googleapis.com/books/v1/volumes?q=#{:search}&maxResults=15&key=#{ENV["AIzaSyCceqexSWqOP94O7r06WYfpkd1e3xkEoRo"]}" %>
-<% response = HTTParty.get(url) %>
-<% result = response.parsed_response %>
-
-<div class="container">
-  <div class="row justify-content-center text-left mt-3 mb-3">
-    <div class="book">
-      <h1><%= "Title: #{result['items'][0]['volumeInfo']['title']}" %></h1>
-        <p><%= "#{result['kind']}" %></p>
-        <h2><%= "Author/s: #{result['items'][0]['volumeInfo']['authors'].join}" %></h2>
-        <p><%= "Description: #{result['items'][0]['volumeInfo']['description']}" %></p>
-        <ul>
-          <li><%= "Publisher: #{result['items'][0]['volumeInfo']['publisher']}" %></li>
-          <li><%= "Date: #{result['items'][0]['volumeInfo']['publishedDate']}" %></li>
-          <li><%= "Type: #{result['items'][0]['volumeInfo']['categories']}" %></li>
-          <li><%= "Avarage rating: #{result['items'][0]['volumeInfo']['averageRating']}" %></li>
-          <li><%= "Image: #{result['items'][0]['volumeInfo']['imageLinks']['thumbnail']}" %></li>
-          <li><%= "Language: #{result['items'][0]['volumeInfo']['language']}" %></li>
-          <li><%= "Preview: #{result['items'][0]['volumeInfo']['previewLink']}" %></li>
-        </ul>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -124,27 +58,28 @@
     />
     <meta property="og:image" content="icons/icon-144x144.png" />
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@liyasthomas" />
-    <meta name="twitter:creator" content="@liyasthomas" />
-    <meta name="twitter:url" content="https://liyasthomas.github.io/books" />
-    <meta name="twitter:title" content="Books" />
+
     <meta
       name="twitter:description"
       content="Find books from Google Play Books"
     />
     <meta name="twitter:image" content="icons/icon-144x144.png" />
     <!-- Web Fonts -->
+    <div class="text-center">
+      <h1>Search for book</h1>
+    </div>
 
-      <div class="spacer"></div>
+<div class="container">
+   <div class="spacer"></div>
       <label class="theme-switch" for="checkbox" title="Night mode">
-        <input type="checkbox" id="checkbox" aria-label="Night mode" />
         <div class="slider round"></div>
       </label>
     </aside>
     <main id="main" class="main">
       <article>
-        <section id="search" class="results">
+
+            <div class="serch-bar d-flex justify-content-center mb-4">
+              <section id="search" class="results">
           <div class="flex">
             <input
               id="search-box"
@@ -152,17 +87,20 @@
               placeholder="Search books by name, author, genre and etc ..."
               aria-label="Search books"
             />
-            <button
+            <div class="info"
               id="installPWA"
-              class="info"
               onclick="installPWA()"
-              style="margin-left: 24px; padding: 8px 16px;"
-            >
-              <img src="icons/pwalogo.svg" alt="PWA" style="height: 16px;" />
-            </button>
+              >search
+            </div>
+
+
           </div>
           <div class="list-book search">
           </div>
         </section>
+            </div>
+
+</div>
+
 
 

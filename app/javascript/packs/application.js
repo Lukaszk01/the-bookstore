@@ -54,7 +54,7 @@ const drawChartBook = async (subject, startIndex = 0) => {
   let cbookContainer = document.querySelector(`.${subject}`);
   cbookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`;
   const cdata = await getBooks(
-    `subject:${subject}&startIndex=${startIndex}&maxResults=6`
+    `subject:${subject}&startIndex=${startIndex}&maxResults=5`
   );
   if (cdata.error) {
     cbookContainer.innerHTML = `<div class='prompt'>ツ Limit exceeded! Try after some time</div>`;
@@ -88,7 +88,7 @@ const drawListBook = async () => {
   if (searchBooks.value != "") {
     bookContainer.style.display = "flex";
     bookContainer.innerHTML = `<div class='prompt'><div class="loader"></div></div>`;
-    const data = await getBooks(`${searchBooks.value}&maxResults=6`);
+    const data = await getBooks(`${searchBooks.value}&maxResults=5`);
     if (data.error) {
       bookContainer.innerHTML = `<div class='prompt'>ツ Limit exceeded! Try after some time</div>`;
     } else if (data.totalItems == 0) {

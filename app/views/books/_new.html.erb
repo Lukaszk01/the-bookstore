@@ -1,8 +1,17 @@
 _new.html.erb
-<h1>Add book info</h1>
-<%= simple_form_for[author, book] do |f| %>
+<h1>Add your own book</h1>
+<div class="form">
+  <div class="row justify-content-center">
+    <%= simple_form_for(@book[:author_id]) do |f| %>
   <%= f.input :title %>
   <%= f.input :genre %>
-  <%= f.input :cover %>
+  <%#= f.input :cover %>
+  <%= f.input :author %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+  </div>
+
+
+</div>
+
+
