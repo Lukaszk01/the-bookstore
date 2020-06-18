@@ -30,7 +30,7 @@ class BooksController < ApplicationController
  def new
      @book = Book.new()
     if @book.save
-      redirect_to book_path(@book)
+      redirect_to root_path
     else
       render 'new'
     end
@@ -50,7 +50,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
       if @book.save
-        redirect_to books_path
+        redirect_to root_path
       else
         render "new"
       end

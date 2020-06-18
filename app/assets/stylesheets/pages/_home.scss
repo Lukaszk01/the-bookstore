@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+.serch-bar section input {
+  border-radius: 15px;
+  height: 40px;
+}
+.info {
+  background-color: $warning;
+  color: white;
+  border-radius: 10px;
+  border: 0.1px solid black;
+  width: 70px;
+  text-align: center;
+  margin: 10px;
+  height: 30px;
+}
+

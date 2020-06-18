@@ -58,11 +58,7 @@
     />
     <meta property="og:image" content="icons/icon-144x144.png" />
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@liyasthomas" />
-    <meta name="twitter:creator" content="@liyasthomas" />
-    <meta name="twitter:url" content="https://liyasthomas.github.io/books" />
-    <meta name="twitter:title" content="Books" />
+
     <meta
       name="twitter:description"
       content="Find books from Google Play Books"
@@ -81,7 +77,9 @@
     </aside>
     <main id="main" class="main">
       <article>
-        <section id="search" class="results">
+
+            <div class="serch-bar d-flex justify-content-center mb-4">
+              <section id="search" class="results">
           <div class="flex">
             <input
               id="search-box"
@@ -89,7 +87,7 @@
               placeholder="Search books by name, author, genre and etc ..."
               aria-label="Search books"
             />
-            <div class="info btn btn-primary"
+            <div class="info"
               id="installPWA"
               onclick="installPWA()"
               >search
@@ -100,6 +98,8 @@
           <div class="list-book search">
           </div>
         </section>
+            </div>
+
 </div>
 
 

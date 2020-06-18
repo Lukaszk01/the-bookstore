@@ -2,7 +2,7 @@ _new.html.erb
 <h1>Add your own book</h1>
 <div class="form">
   <div class="row justify-content-center">
-    <%= simple_form_for(@book) do |f| %>
+    <%= simple_form_for(@book[:author_id]) do |f| %>
   <%= f.input :title %>
   <%= f.input :genre %>
   <%#= f.input :cover %>
