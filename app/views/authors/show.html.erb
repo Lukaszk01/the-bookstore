@@ -5,7 +5,7 @@
 <%= link_to author_path, method: :delete, data: { confirm: "Are you sure?" } do %>
 <ul class="text-success"><i class="fa fa-trash"></i></ul>
 <% end %>
-<%= link_to "Add book", new_author_book_path(@author) %>
+<%= link_to "Add book", new_author_path %>
 <div class="btn btn-success">
   <%= link_to 'Back', authors_path %>
 </div>
