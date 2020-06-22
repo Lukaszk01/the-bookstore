@@ -11,10 +11,10 @@ class BooksController < ApplicationController
     # @author = Author.find(params[:author_id])
     @book = Book.new(book_params)
     @book.author = @author
-      if @book.author.save
+      if @book.save
         redirect_to author_path(@author)
       else
-        render "author/show"
+        render "new"
       end
   end
 
