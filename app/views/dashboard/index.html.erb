@@ -1,13 +1,23 @@
- <h2>Your books</h2>
+<h2>Your books</h2>
 <% @books.each do |book| %>
-
-<%= book.title %>
-<%= book.genre %>
+<div class="container">
+    <div class="d-flex justify-content-between col-12 col-md-6 col-lg-4">
+      <div class="">
+      <%= book.title %>
+      <%= book.genre %>
+    </div>
+  </div>
+</div>
 <% end %>
-
-<h2>Your Authors</h2>
-<% @authors.each do |author| %>
-
-<%= author.name %>
-
+ <h2>Your Authors</h2>
+ <% @authors.each do |author| %>
+<div class="container">
+    <div class="justify-content-between col-12 col-md-6 col-lg-4">
+      <div class="">
+        <ul>
+          <ol><%= author.name %></ol>
+        </ul>
+    </div>
+  </div>
+</div>
 <% end %>
