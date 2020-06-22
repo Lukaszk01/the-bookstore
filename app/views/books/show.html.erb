@@ -1,6 +1,8 @@
 <% @books.each do |book| %>
 <li><%= book.title %></li>
 <li><%= book.genre %></li>
-<li> <%= book.author %></li>
   <% end %>
 
+<% @authors.each do |author| %>
+<li><%= author.name %></li>
+  <% end %>

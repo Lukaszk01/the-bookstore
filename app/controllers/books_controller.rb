@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   def show
     @books = Book.all
+    @authors.new
   end
 
   def new
@@ -9,13 +10,23 @@ class BooksController < ApplicationController
 
   def create
     # @author = Author.find(params[:author_id])
+    # @book = Book.new(book_params)
+    # @book.author = @author
+    #   if @book.save
+    #     redirect_to author_path(@author)
+    #   else
+    #     render "new"
+    #   end
+
+    # @author = Author.new
+    # @author = Author.find(params[:id])
     @book = Book.new(book_params)
-    @book.author = @author
-      if @book.author.save
-        redirect_to author_path(@author)
-      else
-        render "author/show"
-      end
+    @book.author_id = params[:author_id]
+    if @book.save
+      redirect_to author_path(@author)
+    else
+      render "new"
+    end
   end
 
   def destroy
