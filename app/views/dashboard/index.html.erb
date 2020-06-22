@@ -1,10 +1,11 @@
+ <h2>Your books</h2>
 <% @books.each do |book| %>
 
 <%= book.title %>
-
+<%= book.genre %>
 <% end %>
 
-
+<h2>Your Authors</h2>
 <% @authors.each do |author| %>
 
 <%= author.name %>
