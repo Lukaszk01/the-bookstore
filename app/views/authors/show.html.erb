@@ -3,7 +3,7 @@
       <div class="justify-content-center text-left ml-4">
         <div class="form">
           <%= render 'form', book: @book %>
-          <%= link_to books_path, method: :delete, data: { confirm: "Are you sure?" } do %>
+          <%= link_to authors_path, method: :delete, data: { confirm: "Are you sure?" } do %>
           <ul class="text-success"><i class="fa fa-trash"></i></ul>
           <% end %>
         </div>
