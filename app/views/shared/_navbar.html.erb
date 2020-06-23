@@ -1,6 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <% end %>
+  <a class="navbar-brand" href="#">
+
+<!--     <img src="https://cdn4.iconfinder.com/data/icons/library-and-bookstore/500/SingleCartoonLibraryAndBookstoreYulia_8-512.png" /> -->
+
+</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,12 +13,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link" %>
+        </li>
+      <li class="nav-item active">
+          <%= link_to "independent Authors", authors_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Dashboard", dashboard_index_path, class: "nav-link" %>
-
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://is5-ssl.mzstatic.com/image/thumb/Purple71/v4/f1/cc/d3/f1ccd3b0-550b-0cd7-5eb6-6681c96791be/source/256x256bb.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
