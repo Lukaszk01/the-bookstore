@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :author
   has_many :covers
+  has_one_attached :photo
   validates :title, uniqueness: true
   validates :title, presence: true
    validates :name, uniqueness: true
