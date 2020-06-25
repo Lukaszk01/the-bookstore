@@ -1,8 +1,13 @@
 <div class="container text-left">
   <h1><%= @author.name %></h1>
+   <div class="image">
+    <% if @books.photo.attached? %>
+      <%= cl_image_tag @books.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
       <div class="justify-content-center text-left ml-4">
         <div class="form">
-          <%= render 'form', book: @book %>
+
           <%= link_to authors_path, method: :delete, data: { confirm: "Are you sure?" } do %>
           <ul class="text-success"><i class="fa fa-trash"></i></ul>
           <% end %>
