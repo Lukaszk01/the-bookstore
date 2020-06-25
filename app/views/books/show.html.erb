@@ -1,9 +1,10 @@
 <% @books.each do |book| %>
 <li><%= books.title %></li>
 <li><%= books.genre %></li>
+<%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 
 <% @authors.each do |author| %>
 <li><%= author.name %></li>
   <% end %>
-<%= cl_image_tag @books.photo.key, height: 300, width: 400, crop: :fill %>
+
