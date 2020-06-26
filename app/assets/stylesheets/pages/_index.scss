@@ -2,3 +2,20 @@
 @import "home";
 @import "banner";
 
+.book-stack img {
+  width: 600px;
+  // height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  float: left;
+  display: block;
+}
+.main-container {
+  display: flex;
+}
+.book-search {
+  flex-grow: 1;
+   overflow: scroll;
+}
+
