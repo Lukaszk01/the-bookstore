@@ -75,6 +75,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'elasticsearch-model'
 
 gem 'httparty'
+gem 'pundit'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
