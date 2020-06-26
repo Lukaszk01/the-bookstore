@@ -9,25 +9,26 @@ class BooksController < ApplicationController
   end
 
   def create
-    # @author = Author.find(params[:author_id])
-    # @book = Book.new(book_params)
-    # @book.author = @author
-    #   if @book.save
-    #     redirect_to author_path(@author)
-    #   else
-    #     render "new"
-    #   end
-
-    # @author = Author.new
-    # @author = Author.find(params[:id])
-    @books = Book.new(book_params)
-    @books.author_id = params[:author_id]
-    if @books.save!
-      redirect_to author_path(@author), notice: 'Author was successfully created.'
+    @book = Book.new(book_params)
+    @author = Author.find(params[:id])
+    @book.author = @author
+    if @book.save
+      redirect_to author_path(@author)
     else
       render "new"
     end
   end
+
+  #   @author = Author.new
+  #   @author = Author.find(params[:id])
+  #   @books = Book.new(book_params)
+  #   @books.author_id = params[:author_id]
+  #   if @books.save
+  #     redirect_to author_path(@author)
+  #   else
+  #     render "new"
+  #   end
+  # end
 
   def destroy
     @book = Book.find(book_params)

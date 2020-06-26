@@ -5,18 +5,16 @@
 
  <div class="row justify-content-between">
      <% @authors.each do |author| %>
-     <% @books.each do |book| %>
+
       <div class="card">
         <ul>
         <li class="">Name:</li>
         <li class=""><%= author.name %></li>
         <li class=""><%= render 'author', author: author %></li>
-        <li>Book title: <%= book.title %></li>
-        <li>Genre: <%= book.genre %></li>
+
           <li><%= link_to 'Find more', author %></li>
         </ul>
      </div>
-    <% end %>
     <% end %>
 </div>
 

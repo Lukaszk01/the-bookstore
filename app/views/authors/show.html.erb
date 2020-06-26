@@ -1,4 +1,7 @@
 <div class="container text-left">
+  <div class="justify-content-center text-left ml-4">
+    <h1><%= @author.name %></h1>
+       <div class="form">
   <h1><%= @authors.name %></h1>
    <div class="image">
     <% if @books.photo.attached? %>
@@ -7,19 +10,19 @@
   </div>
       <div class="justify-content-center text-left ml-4">
         <div class="form">
-
           <%= link_to authors_path, method: :delete, data: { confirm: "Are you sure?" } do %>
           <ul class="text-success"><i class="fa fa-trash"></i></ul>
           <% end %>
-        </div>
-        <div class="button">
-          <%= link_to "Add book", new_book_path %>
-        </div>
+          </div>
+            <% @author.books.each do |book| %>
+            <%= book.title %>
+            <% end %>
+            <div class="button mb-4 mt-4">
+              <%= link_to "Add book", new_author_book_path(params[:id]) %>
+            </div>
     </div>
-</div>
-
-  <%= @books.title %>
-
-  <div class="button ml-4">
-    <%= link_to 'Back', authors_path %>
   </div>
+    <%= @books.title %>
+    <div class="button ml-4">
+      <%= link_to 'Back', authors_path %>
+    </div>

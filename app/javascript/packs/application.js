@@ -267,3 +267,10 @@ window.addEventListener("appinstalled", (evt) => {
   pwaInstalled = true;
   document.getElementById("installPWA").style.display = "none";
 });
+
+
+
+
+
+
+
