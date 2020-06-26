@@ -1,6 +1,6 @@
 <div class="container text-left">
   <div class="justify-content-center text-left ml-4">
-    <h1><%= @author.name %></h1>
+
        <div class="form">
   <h1><%= @authors.name %></h1>
    <div class="image">
@@ -14,7 +14,7 @@
           <ul class="text-success"><i class="fa fa-trash"></i></ul>
           <% end %>
           </div>
-            <% @author.books.each do |book| %>
+            <% @authors.books.each do |book| %>
             <%= book.title %>
             <% end %>
             <div class="button mb-4 mt-4">
