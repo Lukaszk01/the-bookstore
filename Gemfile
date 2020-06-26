@@ -76,6 +76,8 @@ gem 'elasticsearch-model'
 
 gem 'httparty'
 gem 'pundit'
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.12.0'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
