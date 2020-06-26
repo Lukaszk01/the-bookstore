@@ -1,5 +1,5 @@
 <div class="container text-left">
-  <h1><%= @author.name %></h1>
+  <h1><%= @authors.name %></h1>
    <div class="image">
     <% if @books.photo.attached? %>
       <%= cl_image_tag @books.photo.key, height: 300, width: 400, crop: :fill %>
