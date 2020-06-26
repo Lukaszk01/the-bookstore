@@ -20,12 +20,12 @@
           <%= link_to "independent Authors", authors_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Dashboard", dashboard_index_path, class: "nav-link" %>
+          <%= link_to "Dashboard", author_dashboard_index_path(:author_id), class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://is5-ssl.mzstatic.com/image/thumb/Purple71/v4/f1/cc/d3/f1ccd3b0-550b-0cd7-5eb6-6681c96791be/source/256x256bb.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Create Book", new_book_path, class: "dropdown-item" %>
+            <%= link_to "Create Book", new_author_book_path(:author_id), class: "dropdown-item" %>
             <%= link_to "Create Author", new_author_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

@@ -1,7 +1,7 @@
 <div class="container text-left">
      <h2>New book</h2>
   <div class="justify-content-center text-left ml-4">
-      <%= simple_form_for(@books) do |f| %>
+      <%= simple_form_for(:book) do |f| %>
       <%= f.input :title %>
       <%= f.input :genre %>
       <div class="mt-4 mb-4">
