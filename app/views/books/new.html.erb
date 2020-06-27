@@ -4,8 +4,8 @@
       <%= simple_form_for(:book) do |f| %>
       <div class="form">
         <%= f.input :title %>
-      <%= f.input :genre %>
-      <%= f.input :photo, as: :file, label: ('Upload cocktail photo').html_safe %>
+        <%= f.input :genre %>
+        <%= f.input :photo, as: :file, label: ('Upload cocktail photo').html_safe %>
       <div class="mt-4 mb-4">
        <%= f.submit class: "button" %>
       </div>
