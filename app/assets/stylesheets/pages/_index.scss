@@ -4,14 +4,17 @@
 
 .book-stack img {
   width: 600px;
-  // height: 100vh;
-  position: -webkit-sticky;
-  top: 0;
+  height: 600px;
+  padding-left: 100px;
   float: left;
-  display: block;
+  position: fixed;
+
+
+
 }
 .main-container {
   display: flex;
+  align-items: flex-start;
 }
 .book-search {
   flex-grow: 1;
