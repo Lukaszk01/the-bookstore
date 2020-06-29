@@ -273,8 +273,3 @@ window.addEventListener("appinstalled", (evt) => {
 
 
 
-
-
-
-
-

@@ -21,11 +21,14 @@
 
 .navbar  {
   float: left;
-  display: block;
+  // display: block;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+}
+.navbar, .navbar-expand-sm, .navbar-light, .navbar-lewagon:hover {
+  background-color: white;
 }
 
 .navbar:hover {
@@ -36,9 +39,11 @@
   color: black;
 }
 .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
-  color: white;
+  color: black;
+
 }
 .navbar-light .navbar-nav .nav-link {
-  color: white;
+  color: black;
 }
+
 
