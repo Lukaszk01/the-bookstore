@@ -4,15 +4,17 @@
 
 .book-stack img {
   width: 600px;
-  // height: 100vh;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+  height: 600px;
+  padding-left: 100px;
   float: left;
-  display: block;
+  position: fixed;
+
+
+
 }
 .main-container {
   display: flex;
+  align-items: flex-start;
 }
 .book-search {
   flex-grow: 1;
@@ -65,3 +67,11 @@ $color-loader: #ce4233;
   50% { height: 8px; width: 40px }
   100% { left: 235px; height: 30px; width: 15px}
 }
+
+
+
+
+
+
+
+
