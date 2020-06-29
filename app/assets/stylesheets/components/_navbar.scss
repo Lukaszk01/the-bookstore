@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,5 +11,34 @@
   width: 40px;
 }
 .navbar {
-  box-shadow: 0px 0px 8px gray;
+  // box-shadow: 0px 0px 8px gray;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
 }
+
+.navbar  {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar:hover {
+  background: #F4F4F4;
+  color: black;
+}
+.navbar :hover {
+  color: black;
+}
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+  color: white;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
