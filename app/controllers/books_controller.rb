@@ -9,8 +9,8 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
     @author = Author.find(params[:id])
+    @book = Book.new(book_params)
     @book.author = @author
     if @book.save
       redirect_to author_path(@author)
