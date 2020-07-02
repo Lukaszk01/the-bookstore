@@ -1,8 +1,12 @@
 class BooksController < ApplicationController
-  # def show
-  #   @books = Book.all
-  #   @authors.new
-  # end
+  def show
+    @book = Book.new
+    @books = Book.all
+    @authors.new
+  end
+  def index
+
+  end
 
   def new
     @author = Author.find(params[:author_id])
@@ -16,7 +20,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to author_path(@author)
     else
-      render "new"
+      render "show"
     end
   end
 
