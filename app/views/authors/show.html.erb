@@ -18,7 +18,7 @@
             <%= book.title %>
             <% end %>
             <div class="button mb-4 mt-4">
-              <%= link_to "Add book", new_author_book_path(params[:id]) %>
+              <%= link_to "Add book", author_books_path(params[:id]) %>
             </div>
     </div>
   </div>
@@ -26,3 +26,4 @@
     <div class="button ml-4">
       <%= link_to 'Back', authors_path %>
     </div>
+
