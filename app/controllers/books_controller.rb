@@ -1,23 +1,23 @@
 class BooksController < ApplicationController
   def show
-    @book = Book.new
+    @books = Book.new
     @books = Book.all
-    @authors.new
   end
   def index
+    @books = Book.all
 
   end
 
   def new
     @author = Author.find(params[:author_id])
-    @books = Book.new
+    @bookss = Book.new
   end
 
   def create
     @author = Author.find(params[:author_id])
-    @book = Book.new(book_params)
-    @book.author = @author
-    if @book.save
+    @books = Book.new(book_params)
+    @books.author = @author
+    if @books.save
       redirect_to author_path(@author)
     else
       render "show"
@@ -26,8 +26,8 @@ class BooksController < ApplicationController
 
   #   @author = Author.new
   #   @author = Author.find(params[:id])
-  #   @books = Book.new(book_params)
-  #   @books.author_id = params[:author_id]
+  #   @bookss = Book.new(book_params)
+  #   @bookss.author_id = params[:author_id]
   #   if @books.save
   #     redirect_to author_path(@author)
   #   else
@@ -44,6 +44,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :genre, :cover, :author, :photo)
+    params.require(:book).permit(:title, :genre, :photo)
+
   end
 end
