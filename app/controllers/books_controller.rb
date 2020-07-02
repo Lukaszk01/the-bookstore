@@ -1,15 +1,16 @@
 class BooksController < ApplicationController
-  def show
-    @books = Book.all
-    @authors.new
-  end
+  # def show
+  #   @books = Book.all
+  #   @authors.new
+  # end
 
   def new
+    @author = Author.find(params[:author_id])
     @books = Book.new
   end
 
   def create
-    @author = Author.find(params[:id])
+    @author = Author.find(params[:author_id])
     @book = Book.new(book_params)
     @book.author = @author
     if @book.save
