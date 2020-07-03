@@ -2,16 +2,17 @@
   <div class="justify-content-center text-left ml-4">
 
        <div class="form">
+        <p>Author name:</p>
   <h1><%= @authors.name %></h1>
-  <h2> <% @books.each do |book| %>
-<li><%= book.title %></li>
-<li><%= book.genre %></li>
+  <p>Auhtors books: </p>
+ <% @authors.books.each do |book| %>
+ <h2><%= book.title %></h2>
+  <h3><%= book.genre %></h3>
+  <% if @book.photo.attached? %>
+      <%= cl_image_tag @book.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+ <% end %>
 
-  <% end %> </h2>
-   <div class="image">
-      <%#= cl_image_tag @books.photo.key, height: 300, width: 400, crop: :fill %>
-
-  </div>
       <div class="justify-content-center text-left ml-4">
         <div class="form">
           <%= link_to authors_path, method: :delete, data: { confirm: "Are you sure?" } do %>
@@ -21,7 +22,7 @@
             <div class="button mb-4 mt-4">
               <%= link_to "Add book", author_books_path(params[:id]) %>
             </div>
-            <%= link_to "check books", author_book_path(params[:id])  %>
+            <%= link_to "check book", author_book_path(params[:id])  %>
     </div>
   </div>
     <div class="button ml-4">
