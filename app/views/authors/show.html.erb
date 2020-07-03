@@ -3,6 +3,11 @@
 
        <div class="form">
   <h1><%= @authors.name %></h1>
+  <h2> <% @books.each do |book| %>
+<li><%= book.title %></li>
+<li><%= book.genre %></li>
+
+  <% end %> </h2>
    <div class="image">
       <%#= cl_image_tag @books.photo.key, height: 300, width: 400, crop: :fill %>
 
