@@ -1,6 +1,5 @@
 <div class="container text-left">
   <div class="justify-content-center text-left ml-4">
-
        <div class="form">
         <p>Author name:</p>
   <h1><%= @authors.name %></h1>
@@ -8,9 +7,9 @@
  <% @authors.books.each do |book| %>
  <h2><%= book.title %></h2>
   <h3><%= book.genre %></h3>
-  <% if @book.photo.attached? %>
-      <%= cl_image_tag @book.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+  <%# if @books.photo.attached? %>
+      <%= cl_image_tag @authors.book.photo.key, height: 300, width: 400, crop: :fill %>
+    <%# end %>
  <% end %>
 
       <div class="justify-content-center text-left ml-4">
@@ -28,4 +27,4 @@
     <div class="button ml-4">
       <%= link_to 'Back', authors_path %>
     </div>
-
+</div>
