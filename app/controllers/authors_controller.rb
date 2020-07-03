@@ -21,7 +21,7 @@ class AuthorsController < ApplicationController
     if @authors.save!
       redirect_to @authors, notice: 'Author was successfully created.'
     else
-      render :index
+      render :show
     end
 
   end

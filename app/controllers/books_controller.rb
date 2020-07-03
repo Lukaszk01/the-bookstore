@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   def show
+    @authors = Author.new
+    @authors = Author.all
     @books = Book.new
     @books = Book.all
   end

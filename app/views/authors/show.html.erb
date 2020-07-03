@@ -4,9 +4,8 @@
        <div class="form">
   <h1><%= @authors.name %></h1>
    <div class="image">
-    <% if @books.photo.attached? %>
-      <%= cl_image_tag @books.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+      <%#= cl_image_tag @books.photo.key, height: 300, width: 400, crop: :fill %>
+
   </div>
       <div class="justify-content-center text-left ml-4">
         <div class="form">
@@ -14,15 +13,12 @@
           <ul class="text-success"><i class="fa fa-trash"></i></ul>
           <% end %>
           </div>
-            <% @authors.books.each do |book| %>
-            <%= book.title %>
-            <% end %>
             <div class="button mb-4 mt-4">
               <%= link_to "Add book", author_books_path(params[:id]) %>
             </div>
+            <%= link_to "check books", author_book_path(params[:id])  %>
     </div>
   </div>
-    <%= @books.title %>
     <div class="button ml-4">
       <%= link_to 'Back', authors_path %>
     </div>

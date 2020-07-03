@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     get "authors/:id/books" => "books#create"
     resources :dashboard, only: [:index]
   end
-  resources :books, only: [:destroy]
+  resources :books, only: [:destroy, :show]
 end
 
