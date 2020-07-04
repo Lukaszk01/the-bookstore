@@ -47,12 +47,19 @@
 .navbar-light .navbar-nav .nav-link {
   color: black;
 }
-li, .navbar-light .navbar-brand {
-  color: black;
-  font-family: 'Great Vibes', cursive;
-}
+
 .nav-link {
   font-family: 'Great Vibes', cursive;
 }
+.dropdown-menu, .dropdown-menu-right, .show {
+  border-radius: 5px;
+  box-shadow: 0 8px 24px rgba(149,157,165,.2);
 
+}
+.dropdown-divider {
+    display: block;
+    height: 0;
+    margin: 8px 0;
+    border-top: 1px solid #e1e4e8;
+}
 

@@ -24,6 +24,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Create Book", author_books_path(:author_id), class: "dropdown-item" %>
             <%= link_to "Create Author", new_author_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
