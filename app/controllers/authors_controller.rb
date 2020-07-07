@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
   def new
-    @authors = Author.new
-    @books = Book.new
+    @author = Author.new
+    @book = Book.new
   end
 
   def index
@@ -18,9 +18,9 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    @authors = Author.new(author_params)
-    if @authors.save!
-      redirect_to @authors, notice: 'Author was successfully created.'
+    @author = Author.new(author_params)
+    if @author.save!
+      redirect_to @author, notice: 'Author was successfully created.'
     else
       render :show
     end
