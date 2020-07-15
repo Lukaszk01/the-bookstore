@@ -4,7 +4,7 @@
         <p>Author name:</p>
   <h1><%= @authors.name %></h1>
   <p>Auhtors books: </p>
- <% @author.book.each do |book| %>
+ <% @books.each do |book| %>
  <h2><%= book.title %></h2>
   <h3><%= book.genre %></h3>
   <%# if @books.photo.attached? %>
@@ -27,4 +27,5 @@
     <div class="button ml-4">
       <%= link_to 'Back', authors_path %>
     </div>
+</div>
 </div>
