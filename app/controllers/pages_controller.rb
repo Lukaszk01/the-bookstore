@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   require 'open-uri'
 
   def home
-    @book = Book.new(params[:id])
+    # @book = Book.new(params[:id])
 
   end
   def search
